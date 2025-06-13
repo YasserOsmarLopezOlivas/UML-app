@@ -1,0 +1,65 @@
+import React, { useState } from 'react';
+import { View, Text, TextInput, StyleSheet, TouchableOpacity, ScrollView } from 'react-native';
+
+export default function RegisterScreen() {
+  const [carnet, setCarnet] = useState('');
+  const [celular, setCelular] = useState('');
+  const [carrera, setCarrera] = useState('');
+  const [anioCarrera, setAnioCarrera] = useState('');
+
+  const handleRegister = () => {
+    alert("Registro guardado");
+  };
+
+  return (
+    <ScrollView contentContainerStyle={styles.container}>
+      <Text style={styles.title}>Ingresa tus datos correctamente</Text>
+
+      <TextInput
+        style={styles.input}
+        placeholder="N° de carnet"
+        placeholderTextColor="#999"
+        value={carnet}
+        onChangeText={setCarnet}
+      />
+
+      <TextInput
+        style={styles.input}
+        placeholder="N° de celular"
+        placeholderTextColor="#999"
+        keyboardType="phone-pad"
+        value={celular}
+        onChangeText={setCelular}
+      />
+
+      <TextInput
+        style={styles.input}
+        placeholder="Carrera"
+        placeholderTextColor="#999"
+        value={carrera}
+        onChangeText={setCarrera}
+      />
+
+      <TextInput
+        style={styles.input}
+        placeholder="Año de la carrera"
+        placeholderTextColor="#999"
+        keyboardType="numeric"
+        value={anioCarrera}
+        onChangeText={setAnioCarrera}
+      />
+
+      <TouchableOpacity style={styles.button} onPress={handleRegister}>
+        <Text style={styles.buttonText}>Guardar registro</Text>
+      </TouchableOpacity>
+    </ScrollView>
+  );
+}
+
+const styles = StyleSheet.create({
+  container: { flexGrow: 1, backgroundColor: '#4BA3A4', alignItems: 'center', justifyContent: 'center', padding: 20 },
+  title: { fontSize: 20, fontWeight: 'bold', marginBottom: 30, color: '#123456', textAlign: 'center' },
+  input: { backgroundColor: '#F4EDED', width: '100%', height: 50, borderRadius: 25, paddingHorizontal: 20, marginBottom: 20, color: '#000' },
+  button: { backgroundColor: '#fff', paddingHorizontal: 40, paddingVertical: 15, borderRadius: 30, elevation: 3, marginTop: 20 },
+  buttonText: { fontSize: 16, color: '#123456', fontWeight: 'bold' },
+});
