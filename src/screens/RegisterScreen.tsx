@@ -1,7 +1,14 @@
 import React, { useState } from 'react';
 import { View, Text, TextInput, StyleSheet, TouchableOpacity, ScrollView } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
+import type { StackNavigationProp } from '@react-navigation/stack';
+import { RootStackParamList } from '../navigation/types';
+
+type RegisterScreenNavigationProp = StackNavigationProp<RootStackParamList, 'Register'>;
 
 export default function RegisterScreen() {
+  const navigation = useNavigation<RegisterScreenNavigationProp>();
+
   const [carnet, setCarnet] = useState('');
   const [celular, setCelular] = useState('');
   const [carrera, setCarrera] = useState('');
@@ -13,6 +20,11 @@ export default function RegisterScreen() {
 
   return (
     <ScrollView contentContainerStyle={styles.container}>
+      {/* Botón de regreso */}
+      <TouchableOpacity style={styles.backButton} onPress={() => navigation.navigate('Welcome')}>
+        <Text style={styles.backButtonText}>← Regresar</Text>
+      </TouchableOpacity>
+
       <Text style={styles.title}>Ingresa tus datos correctamente</Text>
 
       <TextInput
@@ -62,4 +74,6 @@ const styles = StyleSheet.create({
   input: { backgroundColor: '#F4EDED', width: '100%', height: 50, borderRadius: 25, paddingHorizontal: 20, marginBottom: 20, color: '#000' },
   button: { backgroundColor: '#fff', paddingHorizontal: 40, paddingVertical: 15, borderRadius: 30, elevation: 3, marginTop: 20 },
   buttonText: { fontSize: 16, color: '#123456', fontWeight: 'bold' },
+  backButton: { position: 'absolute', top: 40, left: 20, padding: 10 },
+  backButtonText: { color: '#fff', fontSize: 16 },
 });
