@@ -19,7 +19,7 @@ export default function WelcomeScreen() {
       avatar: 'https://example.com/avatar.jpg'
     };
 
-    navigation.navigate('ClassScreen', { user: mockUser });
+    navigation.navigate('HomeScreen', { user: mockUser });
   };
 
   return (

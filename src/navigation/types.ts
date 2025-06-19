@@ -8,7 +8,8 @@ export type User = {
 export type RootStackParamList = {
   Welcome: undefined;
   Register: undefined;
-  ClassScreen: { user: User };
+  HomeScreen: { user: User };
   ScanScreen: undefined;
   ConfirmationScreen: undefined;
+  StudentScreen: undefined;
 };

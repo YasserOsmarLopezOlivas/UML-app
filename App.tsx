@@ -4,11 +4,12 @@ import { createStackNavigator } from '@react-navigation/stack';
 
 import WelcomeScreen from './src/screens/WelcomeScreen';
 import RegisterScreen from './src/screens/RegisterScreen';
-import ClassScreen from './src/screens/ClassScreen';
+import HomeScreen from './src/screens/HomeScreen';
 import ScanScreen from './src/screens/ScanScreen';
 import ConfirmationScreen from './src/screens/ConfirmationScreen';
 
 import { RootStackParamList } from './src/navigation/types';
+import StudentScreen from './src/screens/StudentScreen';
 
 const Stack = createStackNavigator<RootStackParamList>();
 
@@ -21,9 +22,11 @@ export default function App() {
       >
         <Stack.Screen name="Welcome" component={WelcomeScreen} />
         <Stack.Screen name="Register" component={RegisterScreen} />
-        <Stack.Screen name="ClassScreen" component={ClassScreen} />
+        <Stack.Screen name="HomeScreen" component={HomeScreen} />
         <Stack.Screen name="ScanScreen" component={ScanScreen} />
         <Stack.Screen name="ConfirmationScreen" component={ConfirmationScreen} />
+        <Stack.Screen name="StudentScreen" component={StudentScreen} />
+        {/* Add other screens as needed */}
       </Stack.Navigator>
     </NavigationContainer>
   );

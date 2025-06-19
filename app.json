@@ -4,30 +4,27 @@
     "slug": "UMLApp",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/icon.png",
     "userInterfaceStyle": "light",
     "newArchEnabled": true,
-    "splash": {
-      "image": "./assets/splash-icon.png",
-      "resizeMode": "contain",
-      "backgroundColor": "#ffffff"
-    },
     "ios": {
       "supportsTablet": true
     },
     "android": {
-      "adaptiveIcon": {
-        "foregroundImage": "./assets/adaptive-icon.png",
-        "backgroundColor": "#ffffff"
-      },
-      "edgeToEdgeEnabled": true
+      "edgeToEdgeEnabled": true,
+      "permissions": [
+        "android.permission.CAMERA"
+      ],
+      "package": "com.gregoryenriquez.UMLApp"
     },
-    "web": {
-      "favicon": "./assets/favicon.png"
-    },
+    "web": {},
     "plugins": [
-      "expo-web-browser",
-      "expo-barcode-scanner"
-    ]
+      "expo-web-browser"
+    ],
+    "extra": {
+      "eas": {
+        "projectId": "d6318571-b5d8-4d92-9320-db3a07526f08"
+      }
+    },
+    "owner": "gregory-enriquez"
   }
 }
