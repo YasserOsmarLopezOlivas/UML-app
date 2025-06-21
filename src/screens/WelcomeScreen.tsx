@@ -3,6 +3,7 @@ import { View, Text, Image, StyleSheet, TouchableOpacity, Linking } from 'react-
 import { useNavigation } from '@react-navigation/native';
 import type { StackNavigationProp } from '@react-navigation/stack';
 import { RootStackParamList, User } from '../navigation/types';
+import BtnGoogle from '../components/BtnGoogle';
 
 
 type WelcomeScreenNavigationProp = StackNavigationProp<RootStackParamList, 'Welcome'>;
@@ -22,22 +23,18 @@ export default function WelcomeScreen() {
     navigation.navigate('HomeScreen', { user: mockUser });
   };
 
+  function rgba(arg0: number, arg1: number, arg2: number, arg3: number): import("react-native").ColorValue | undefined {
+    throw new Error('Function not implemented.');
+  }
+
   return (
     <View style={styles.container}>
       <Image source={require('../../assets/logo.png')} style={styles.logo} />
       <Text style={styles.welcome}>Bienvenido</Text>
-
-      <TouchableOpacity 
-        style={styles.googleButton} 
-        onPress={handleGoogleSignIn}
-      >
-        <Image 
-          source={require('../../assets/google.png')} 
-          style={styles.googleIcon} 
-        />
-        <Text style={styles.googleText}>Acceder con Google</Text>
-      </TouchableOpacity>
-
+      
+  {/* Botón de Google como componente */}
+  <BtnGoogle onPress={handleGoogleSignIn} />
+      
       <TouchableOpacity onPress={() => navigation.navigate('Register')}>
         <Text style={styles.registerLink}>¿No tienes cuenta? Regístrate</Text>
       </TouchableOpacity>
